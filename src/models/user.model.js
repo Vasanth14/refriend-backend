@@ -23,6 +23,16 @@ const userSchema = mongoose.Schema(
         }
       },
     },
+    companyName : {
+      type: String,
+      required: true,
+      trim:true,
+    },
+    jobTitle:{
+      type:String,
+      required:true,
+      trim:true
+    },
     password: {
       type: String,
       required: true,
