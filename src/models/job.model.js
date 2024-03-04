@@ -32,7 +32,7 @@ const jobSchema = mongoose.Schema({
     },
     companyLocation:{
         type:String,
-        required:true,
+        required:false,
         trim:true,
     },
     skills:[{
@@ -50,7 +50,7 @@ const jobSchema = mongoose.Schema({
     },
     category:{
         type:String,
-        required:true,
+        required:false,
         trim:true,
     },
     benefits:[{
@@ -58,7 +58,7 @@ const jobSchema = mongoose.Schema({
         required:false,
         trim: true,
     }],
-    contactLink:[{
+    contactLinks:[{
         type:String,
         required:true,
     }],
