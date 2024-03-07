@@ -53,7 +53,7 @@ const createJob = async (jobBody, userId) => {
   
 
 /**
- * Query for users
+ * Query for jobs
  * @param {Object} filter - Mongo filter
  * @param {Object} options - Query options
  * @param {string} [options.sortBy] - Sort option in the format: sortField:(desc|asc)
@@ -62,9 +62,15 @@ const createJob = async (jobBody, userId) => {
  * @returns {Promise<QueryResult>}
  */
 const queryJobs = async (filter, options) => {
+  // Set default sorting to descending order by createdAt field if sortBy option is not provided
+  if (!options.sortBy) {
+    options.sortBy = 'createdAt:desc';
+  }
+  
   const jobs = await Job.paginate(filter, options);
   return jobs;
 };
+
 
 /**
  * Get job by id
